@@ -10,14 +10,13 @@ import torch
 #     model = model.eval()
 
 #     return model
+loaded_model = torch.load(
+    "model/sugarcaneacc79.pth",
+    weights_only=False,
+    map_location=torch.device("cpu")
+)
 
-model = torch.load("model/sugarcaneacc79.pth",weights_only=False,map_location=torch.device("cpu"))
-    
-    
-    
-    
-
-model = model.eval()
+loaded_model.eval()
 # 1. Load model
 
 def model(img):
@@ -39,7 +38,7 @@ def model(img):
     # img = img.unsqueeze(0)
 
     with torch.no_grad():
-        output = model(img)
+        output = loaded_model(img)
 
     return output
 
