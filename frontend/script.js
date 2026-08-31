@@ -150,4 +150,5 @@ resetBtn.addEventListener("click", function () {
 
     confidenceBar.style.width = "0%";
 
+    
 });
