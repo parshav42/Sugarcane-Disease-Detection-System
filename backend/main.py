@@ -1,7 +1,8 @@
-from fastapi import FastAPI
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from pathlib import Path
+
 from backend.predictor import predict
 
 app = FastAPI()
@@ -14,17 +15,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get('/')
+@app.get("/")
 def sugar():
-    print('hello')
+    return {"message": "Sugarcane Disease Detection API"}
 
 @app.get("/sitemap.xml")
 def sitemap():
-    return FileResponse("../sitemap.xml", media_type="application/xml")
+    sitemap_path = Path(__file__).resolve().parent.parent / "sitemap.xml"
+    return FileResponse(sitemap_path, media_type="application/xml")
 
-@app.post('/upload')
+@app.post("/upload")
 def pre(file: UploadFile = File(...)):
-  
     l = predict(file.file)
-    
     return l
