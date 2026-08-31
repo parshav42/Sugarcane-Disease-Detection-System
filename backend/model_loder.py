@@ -11,19 +11,19 @@ import torch
 
 #     return model
 
+model = torch.load("model/sugarcaneacc79.pth",weights_only=False,map_location=torch.device("cpu"))
+    
+    
+    
+    
 
+model = model.eval()
 # 1. Load model
 
 def model(img):
    
 
-    model = torch.load("model/sugarcaneacc79.pth",weights_only=False,map_location=torch.device("cpu"))
-    
-    
-    
-    
 
-    model = model.eval()
 
     # manuly = transforms.Compose([
 
