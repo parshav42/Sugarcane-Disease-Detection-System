@@ -24,6 +24,7 @@ manuly = transforms.Compose([
 
 
 def predict(img):
+    print("PREDICTOR IMG TYPE:", type(img))
 
     img = Image.open(img)
 
