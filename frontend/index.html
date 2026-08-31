@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sugarcane Doctor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🌱 Sugarcane Doctor</div>
+        <p>AI-powered sugarcane disease detection</p>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>Check Your Sugarcane Leaf</h1>
+
+            <p>
+                Upload a clear photo of a sugarcane leaf
+                and our AI will analyze it.
+            </p>
+        </section>
+
+
+        <section class="card">
+
+            <div class="upload-area">
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h2>Upload Leaf Image</h2>
+
+                <p>
+                    JPG, JPEG or PNG
+                </p>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/png, image/jpeg"
+                >
+
+                <label for="imageInput" class="choose-btn">
+                    Choose Image
+                </label>
+
+            </div>
+
+
+            <div id="previewContainer" class="preview-container hidden">
+
+                <h3>Selected Image</h3>
+
+                <img id="previewImage" alt="Sugarcane leaf preview">
+
+            </div>
+
+
+            <button id="detectBtn" class="detect-btn">
+                🔍 Detect Disease
+            </button>
+
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing your leaf...</p>
+            </div>
+
+
+            <div id="result" class="result hidden">
+
+                <h2>🌱 Detection Result</h2>
+
+                <div class="result-box">
+
+                    <p class="result-label">
+                        Detected Disease
+                    </p>
+
+                    <h3 id="diseaseName">
+                        -
+                    </h3>
+
+                    <p class="result-label">
+                        AI Confidence
+                    </p>
+
+                    <div class="confidence">
+                        <div
+                            id="confidenceBar"
+                            class="confidence-bar">
+                        </div>
+                    </div>
+
+                    <p id="confidenceText">
+                        -
+                    </p>
+
+                </div>
+
+                <button
+                    id="resetBtn"
+                    class="reset-btn">
+                    🔄 Check Another Image
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>🌱 Sugarcane Disease Detection System</p>
+        <p>AI assistance for farmers</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
