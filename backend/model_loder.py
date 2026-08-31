@@ -1,7 +1,7 @@
 import torch 
-from torchvision import transforms
-# from pathlib import Path
-from PIL import Image
+# from torchvision import transforms
+# # from pathlib import Path
+# from PIL import Image
 
 
 # def model():
@@ -25,18 +25,18 @@ def model(img):
 
     model = model.eval()
 
-    manuly = transforms.Compose([
+    # manuly = transforms.Compose([
 
-    transforms.Resize((224,224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])
-    ])
+    # transforms.Resize((224,224)),
+    # transforms.ToTensor(),
+    # transforms.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])
+    # ])
 
-    img = Image.open(img)
+    # img = Image.open(img)
 
-    img = manuly(img)
+    # img = manuly(img)
 
-    img = img.unsqueeze(0)
+    # img = img.unsqueeze(0)
 
     with torch.no_grad():
         output = model(img)
