@@ -4,6 +4,20 @@ from fastapi.responses import FileResponse
 from pathlib import Path
 
 from backend.predictor import predict
+from backend.model_loder import model1
+
+from pydantic import BaseModel
+
+class CropData(BaseModel):
+    N: float
+    P: float
+    K: float
+    temperature: float
+    humidity: float
+    ph: float
+    rainfall: float
+
+
 
 app = FastAPI()
 
@@ -28,3 +42,13 @@ def sitemap():
 def pre(file: UploadFile = File(...)):
     l = predict(file.file)
     return l
+@app.post('/crop')
+def croprecom(data: CropData):
+    p = model1([data.N,
+                data.P,
+                data.K,
+                data.temperature,
+                data.humidity,
+                data.ph,
+                data.rainfall])
+    return p
