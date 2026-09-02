@@ -1,4 +1,6 @@
 import torch 
+import joblib
+import sklearn
 # from torchvision import transforms
 # # from pathlib import Path
 # from PIL import Image
@@ -18,6 +20,10 @@ loaded_model = torch.load(
 
 loaded_model.eval()
 # 1. Load model
+
+model2 = joblib.load('model/crop_recommendation.pkl') 
+model3 = joblib.load('model/crop_recommendation_name.pkl')
+
 
 def model(img):
    
@@ -44,12 +50,13 @@ def model(img):
 
 
 
+def model1(data):
 
+    output = model2.predict([data])
+    output = model3.inverse_transform([output])
+
+    return output[0]
     
-
-
-
-
 # 2. model.eval()
 
 # 3. Load one test image

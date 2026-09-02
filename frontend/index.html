@@ -4,7 +4,7 @@
     <meta name="google-site-verification" content="cOOWbFs9GVmi_TQywWbNwV1tA9lAe83Gg9eva-U9zkU" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sugarcane AI - Sugarcane Disease Detection</title>
+    <title>Sugarcane AI | Leaf Health Check</title>
 
 <meta name="description"
       content="Sugarcane AI uses machine learning to detect sugarcane leaf diseases from images. Upload a leaf image and get an AI disease prediction.">
@@ -12,42 +12,44 @@
 <meta name="keywords"
       content="sugarcane AI, sugarcane disease detection, sugarcane leaf disease, AI agriculture">
 
-    <title>Sugarcane AI</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">🌱 Sugarcane AI</div>
-        <p>AI-powered sugarcane disease detection</p>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span> <span>Sugarcane AI</span></div>
+            <p>Simple leaf health checks for your field</p>
+        </div>
     </header>
 
     <main>
 
-        <section class="hero">
-            <h1>Check Your Sugarcane Leaf</h1>
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow"><span aria-hidden="true">●</span> AI-POWERED CROP HEALTH</p>
+            <h1 id="page-title">Check your sugarcane leaf</h1>
 
             <p>
-                Upload a clear photo of a sugarcane leaf
-                and our AI will analyze it.
+                Upload a clear photo of a sugarcane leaf and get a quick AI-supported health check.
             </p>
+            <div class="steps" aria-label="How it works">
+                <span><b>1</b> Upload leaf</span>
+                <span><b>2</b> Detect disease</span>
+            </div>
         </section>
 
 
-        <section class="card">
+        <section class="card" aria-labelledby="upload-title">
 
             <div class="upload-area">
 
-                <div class="upload-icon">
-                    📷
-                </div>
+                <div class="upload-icon" aria-hidden="true">↑</div>
 
-                <h2>Upload Leaf Image</h2>
+                <h2 id="upload-title">Upload a clear photo of a sugarcane leaf</h2>
 
                 <p>
-                    JPG, JPEG or PNG
+                    Use a well-lit JPG or PNG. Keep the leaf in focus.
                 </p>
 
                 <input
@@ -65,7 +67,7 @@
 
             <div id="previewContainer" class="preview-container hidden">
 
-                <h3>Selected Image</h3>
+                <h3>Photo ready for checking</h3>
 
                 <img id="previewImage" alt="Sugarcane leaf preview">
 
@@ -79,13 +81,13 @@
 
             <div id="loading" class="loading hidden">
                 <div class="spinner"></div>
-                <p>Analyzing your leaf...</p>
+                <p><strong>Checking your leaf...</strong><br> This may take a moment.</p>
             </div>
 
 
             <div id="result" class="result hidden">
 
-                <h2>🌱 Detection Result</h2>
+                <h2>Detection Result</h2>
 
                 <div class="result-box">
 
@@ -98,7 +100,7 @@
                     </h3>
 
                     <p class="result-label">
-                        AI Confidence
+                        Confidence
                     </p>
 
                     <div class="confidence">
@@ -107,6 +109,8 @@
                             class="confidence-bar">
                         </div>
                     </div>
+
+                    <p class="confidence-help">How sure the AI is about this result</p>
 
                     <p id="confidenceText">
                         -
@@ -117,18 +121,104 @@
                 <button
                     id="resetBtn"
                     class="reset-btn">
-                    Check Another Image
+                    Check Another Leaf
                 </button>
 
             </div>
 
-        </section>
+   <!-- Crop Recommendation Floating Button -->
+<button id="cropToggle" class="crop-toggle" type="button" aria-label="Open crop recommendation">
+    <span aria-hidden="true">✦</span>
+</button>
 
+
+<!-- Crop Recommendation Popup -->
+<section id="cropPanel" class="crop-panel" aria-labelledby="crop-panel-title">
+
+    <div class="crop-panel-header">
+        <div>
+            <h2 id="crop-panel-title">Crop Recommendation</h2>
+            <p>Optional: tell us about your field</p>
+        </div>
+
+        <button id="cropClose" class="crop-close" type="button" aria-label="Close crop recommendation">
+            ×<span class="sr-only">Close</span>
+        </button>
+    </div>
+
+
+    <!-- Soil -->
+    <div class="crop-section">
+
+        <h3>Soil</h3>
+
+        <div class="crop-input-grid">
+
+            <label>Nitrogen (N)<small>Soil nutrient</small><input type="number" id="N" step="1" required></label>
+            <label>Phosphorus (P)<small>Soil nutrient</small><input type="number" id="P" step="1" required></label>
+            <label>Potassium (K)<small>Soil nutrient</small><input type="number" id="K" step="1" required></label>
+            <label>pH<small>Soil acidity level</small><input type="number" id="ph" step="0.1" required></label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Weather -->
+    <div class="crop-section">
+
+        <h3>Weather</h3>
+
+        <div class="crop-input-grid">
+
+            <label>Temperature<small>Degrees Celsius (°C)</small><input type="number" id="temperature" required></label>
+            <label>Humidity<small>Relative humidity (%)</small><input type="number" id="humidity" required></label>
+            <label>Rainfall<small>Recent rainfall (mm)</small><input type="number" id="rainfall" required></label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Location -->
+    <button
+        id="locationBtn"
+        class="location-btn"
+        type="button"
+    >
+        Use My Location
+    </button>
+
+
+    <!-- Recommend -->
+    <button
+        id="recommendBtn"
+        class="recommend-btn"
+        type="button"
+    >
+        Recommend Crop
+    </button>
+
+
+    <!-- Result -->
+    <div id="cropResult" class="crop-result hidden">
+
+        <span>Recommended Crop</span>
+
+        <h2 id="cropName">-</h2>
+
+        <p>
+            Based on your soil and weather conditions
+        </p>
+
+    </div>
+
+</section>
     </main>
 
 
     <footer>
-        <p>🌱 Sugarcane Disease Detection System</p>
+        <p><span aria-hidden="true">✦</span> Sugarcane Disease Detection System</p>
         <p>AI assistance for farmers</p>
     </footer>
 
