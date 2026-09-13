@@ -16,17 +16,29 @@ const result =
 const diseaseName =
     document.getElementById("diseaseName");
 
-const confidenceText =
-    document.getElementById("confidenceText");
+const diseaseDetails =
+    document.getElementById("diseaseDetails");
 
-const confidenceBar =
-    document.getElementById("confidenceBar");
+const diseaseDescription =
+    document.getElementById("diseaseDescription");
 
 const resetBtn =
     document.getElementById("resetBtn");
 
 
 let selectedFile = null;
+
+function renderDetailList(elementId, items) {
+    const list = document.getElementById(elementId);
+    list.replaceChildren();
+
+    const values = Array.isArray(items) ? items : [items];
+    values.filter(Boolean).forEach((item) => {
+        const entry = document.createElement("li");
+        entry.textContent = item;
+        list.appendChild(entry);
+    });
+}
 
 
 imageInput.addEventListener("change", function () {
@@ -72,7 +84,7 @@ detectBtn.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "https://sugarcane-disease-detection-system.onrender.com/upload",
+            "http://127.0.0.1:8001/upload",
             {
                 method: "POST",
                 body: formData
@@ -92,23 +104,23 @@ detectBtn.addEventListener("click", async function () {
         const data = await response.json();
 
 
-        const disease =
-            data.disease;
-
-        const confidence =
-            Number(data.confidence);
+        const isConfident = data.is_confident === true;
+        const disease = isConfident ? data.disease : "Disease not found";
 
 
         diseaseName.textContent =
             disease;
 
 
-        confidenceText.textContent =
-            confidence.toFixed(2) + "%";
-
-
-        confidenceBar.style.width =
-            confidence + "%";
+        const details = data.details || {};
+        diseaseDescription.textContent = isConfident
+            ? (details.description || "No description available.")
+            : "The disease could not be identified. Try a clearer leaf image with better lighting.";
+        renderDetailList("diseaseSymptoms", details.symptoms);
+        renderDetailList("diseaseReasons", details.reason);
+        renderDetailList("diseasePrevention", details.prevention);
+        renderDetailList("diseaseSolution", details.solution);
+        diseaseDetails.classList.remove("hidden");
 
 
         result.classList.remove("hidden");
@@ -148,9 +160,6 @@ resetBtn.addEventListener("click", function () {
 
     result.classList.add("hidden");
 
-    confidenceBar.style.width = "0%";
-
-
 });
 const recommendBtn = document.getElementById("recommendBtn");
 const cropResult = document.getElementById("cropResult");
@@ -171,7 +180,7 @@ recommendBtn.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "https://sugarcane-disease-detection-system.onrender.com/crop",
+            "http://127.0.0.1:8001/crop",
             {
                 method: "POST",
                 headers: {

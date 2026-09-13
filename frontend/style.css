@@ -106,10 +106,12 @@ main { width: min(100% - 40px, 1120px); margin: 0 auto; padding: 72px 0 88px; }
 .result-box { padding: 24px; border: 1px solid #b9d8c1; border-left: 6px solid var(--green); border-radius: 8px; background: var(--leaf); }
 .result-label { margin-top: 12px; color: var(--muted); font-family: Arial, sans-serif; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 #diseaseName { margin: 3px 0 18px; color: var(--green-dark); font-size: clamp(1.6rem, 6vw, 2.1rem); line-height: 1.15; overflow-wrap: anywhere; }
-.confidence { width: 100%; height: 16px; margin-top: 8px; overflow: hidden; border-radius: 20px; background: #c7d7cb; }
-.confidence-bar { width: 0; height: 100%; border-radius: inherit; background: var(--green); transition: width .7s ease; }
-#confidenceText { margin-top: 8px; font-family: Arial, sans-serif; font-size: 1.15rem; font-weight: 700; }
-.confidence-help { margin-top: 4px; color: var(--muted); font-family: Arial, sans-serif; font-size: .82rem; }
+.disease-details { margin-top: 24px; padding-top: 20px; border-top: 1px solid #b9d8c1; }
+.disease-details > p { margin: 0 0 18px; color: var(--text); line-height: 1.6; }
+.detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.detail-grid h4 { margin: 0 0 8px; color: var(--green-dark); font-size: 1rem; }
+.detail-grid ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.55; }
+.detail-grid li + li { margin-top: 5px; }
 .reset-btn { display: block; margin: 20px auto 0; padding: 0 22px; color: var(--ink); background: #e7eee9; }
 .reset-btn:hover { background: #d6e4da; }
 .hidden { display: none !important; }
@@ -151,6 +153,7 @@ footer { padding: 0 20px 34px; color: var(--muted); font-family: Arial, sans-ser
     .steps { align-items: flex-start; flex-direction: column; width: max-content; margin-right: auto; margin-left: auto; text-align: left; }
     .card { padding: 14px; }
     .crop-panel { right: 12px; bottom: 88px; width: calc(100vw - 24px); max-height: calc(100vh - 104px); padding: 16px; }
+        .detail-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 355px) { .crop-input-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) {

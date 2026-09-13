@@ -1,0 +1,50 @@
+{
+  "DriedLeaves": {
+    "name": "Dried Leaves",
+    "description": "Leaves become dry, brittle, brown or yellow and may eventually fall from the plant.",
+    "reason": ["Insufficient water or irregular irrigation", "Excessive heat or prolonged exposure to high temperature", "Root damage or poor water absorption", "Nutrient deficiency, especially potassium", "Fungal infection or other plant disease"],
+    "symptoms": ["Leaf edges become brown and dry", "Leaves lose their green color", "Leaves become brittle", "Premature leaf fall"],
+    "prevention": ["Maintain proper and regular irrigation", "Avoid water stress and extreme heat", "Maintain soil fertility", "Check roots and control fungal infections when necessary"],
+    "solution": ["Water the plant immediately with a deep, thorough irrigation and set a regular watering schedule", "Provide shade or mulching around the base to reduce heat stress", "Inspect roots for damage or rot and improve soil drainage if needed", "Apply a balanced fertilizer with adequate potassium content", "Remove severely dried leaves and treat with an appropriate fungicide if fungal infection is suspected"]
+  },
+  "HealthyLeaves": {
+    "name": "Healthy Leaves",
+    "description": "Leaves are green, fresh, properly developed and show no visible signs of disease or pest damage.",
+    "reason": "The plant has suitable water, nutrients, light and growing conditions, with no significant pest or disease symptoms.",
+    "symptoms": ["Uniform green color", "Normal leaf shape and size", "No major spots, holes or drying", "Healthy and active growth"],
+    "prevention": ["Continue proper irrigation", "Provide balanced nutrients", "Monitor the plant regularly for pests and diseases", "Maintain good field hygiene"],
+    "solution": ["No treatment needed; continue current care practices", "Maintain regular irrigation and balanced fertilization schedule", "Keep monitoring periodically to catch early signs of pests or disease", "Maintain field hygiene and remove weeds around the plant"]
+  },
+  "Mites": {
+    "name": "Mites",
+    "description": "Mite infestation damages plant leaves by feeding on plant tissues and sucking plant sap.",
+    "reason": ["Hot and dry weather conditions", "Low humidity", "Heavy mite population on leaves", "Dusty or stressed plants", "Insufficient pest monitoring"],
+    "symptoms": ["Small yellow or pale spots on leaves", "Bronzing or discoloration", "Fine webbing in severe infestation", "Leaf curling or drying", "Reduced plant growth"],
+    "prevention": ["Inspect the underside of leaves regularly", "Maintain suitable irrigation and plant moisture", "Remove heavily affected leaves when appropriate", "Use recommended mite-control measures according to local agricultural guidance"],
+    "solution": ["Spray plants with water to increase humidity and dislodge mites", "Apply a recommended miticide or acaricide as per local agricultural guidelines", "Introduce natural predators such as predatory mites or ladybugs if feasible", "Prune and destroy heavily infested leaves to prevent spread", "Avoid dust accumulation on leaves by regular cleaning"]
+  },
+  "RedSpot": {
+    "name": "Red Spot",
+    "description": "Red, reddish-brown or dark spots appear on the leaves and may enlarge if the underlying problem continues.",
+    "reason": ["Fungal or bacterial infection", "High humidity and prolonged leaf wetness", "Poor air circulation", "Nutrient imbalance in some cases", "Infected plant material or contaminated field conditions"],
+    "symptoms": ["Small red or reddish-brown spots", "Spots may increase in size", "Yellowing around affected areas", "Severe infection can cause leaf drying and falling"],
+    "prevention": ["Improve air circulation around plants", "Avoid unnecessary overhead irrigation", "Remove severely infected plant material", "Maintain field sanitation", "Use appropriate disease-control measures when required"],
+    "solution": ["Apply a suitable fungicide or bactericide as recommended by local agricultural experts", "Prune affected leaves and branches to improve air circulation", "Switch to drip irrigation instead of overhead watering to reduce leaf wetness", "Remove and destroy infected plant debris away from the field", "Correct any nutrient imbalance based on soil testing"]
+  },
+  "YellowLeaf": {
+    "name": "Yellow Leaf",
+    "description": "Leaves lose their normal green color and become yellow, either partially or across the entire leaf.",
+    "reason": ["Nitrogen or other nutrient deficiency", "Overwatering or poor drainage", "Underwatering", "Root damage or root disease", "Pest infestation", "Insufficient or excessive environmental stress"],
+    "symptoms": ["Leaves turn pale or yellow", "Older leaves may yellow first in some nutrient deficiencies", "Slow or weak plant growth", "Premature leaf fall in severe cases"],
+    "prevention": ["Maintain balanced fertilizer application", "Avoid both overwatering and underwatering", "Ensure proper soil drainage", "Inspect roots and leaves for pests or diseases"],
+    "solution": ["Apply a nitrogen-rich or balanced fertilizer based on soil test results", "Adjust watering schedule to avoid overwatering or underwatering", "Improve soil drainage by loosening compacted soil or adding organic matter", "Check and treat root damage or root disease if present", "Control any pest infestation with appropriate measures"]
+  },
+  "mawa": {
+    "name": "Mawa (Aphids)",
+    "description": "Mawa, commonly referring to aphids, are small sap-sucking insects that feed on tender shoots, young leaves and plant stems.",
+    "reason": ["Presence and rapid multiplication of aphids", "Warm and favorable weather conditions", "Excessive soft vegetative growth", "Poor pest monitoring", "Presence of weeds or other host plants"],
+    "symptoms": ["Small insects on young leaves and shoots", "Leaves curl or become distorted", "Sticky honeydew on leaves", "Sooty mold may develop on honeydew", "Reduced plant growth"],
+    "prevention": ["Regularly inspect young leaves and shoots", "Remove weeds and heavily infested plant parts", "Encourage natural aphid predators where possible", "Use recommended aphid-control measures according to local agricultural guidance"],
+    "solution": ["Spray affected areas with a strong jet of water to dislodge aphids", "Apply insecticidal soap or neem oil spray on infested shoots and leaves", "Use a recommended insecticide as per local agricultural guidelines for severe infestations", "Introduce natural predators like ladybugs or lacewings to control aphid population", "Remove and destroy heavily infested shoots and nearby weeds"]
+  }
+}

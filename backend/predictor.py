@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 from backend.model_loder import model
 import torch
 from torchvision import transforms
@@ -12,6 +15,23 @@ class_names = {
     4: "ReadSpot",
     5: "YellowLeaf",
     6: "mawa"
+}
+
+detail_path = Path(__file__).resolve().parents[2] / "crop.json"
+if not detail_path.exists():
+    detail_path = Path(__file__).resolve().parents[1] / "crop.json"
+
+with detail_path.open(encoding="utf-8") as detail_file:
+    disease_details = json.load(detail_file)
+
+disease_key_aliases = {
+    "BrownRust": "RedSpot",
+    "Dried Leaves": "DriedLeaves",
+    "HealthyLeaves": "HealthyLeaves",
+    "mites": "Mites",
+    "ReadSpot": "RedSpot",
+    "YellowLeaf": "YellowLeaf",
+    "mawa": "mawa"
 }
 
 
@@ -47,8 +67,13 @@ def predict(img):
     clas = preclss.item()
 
     confi = con.item() * 100
+    predicted_disease = class_names[clas]
+    is_confident = confi > 80
+    disease_key = disease_key_aliases.get(predicted_disease, predicted_disease)
 
     return {
-        "disease": class_names[clas],
-        "confidence": confi
+        "disease": predicted_disease if is_confident else "Disease not found",
+        "confidence": confi,
+        "is_confident": is_confident,
+        "details": disease_details.get(disease_key, {}) if is_confident else {}
     }
