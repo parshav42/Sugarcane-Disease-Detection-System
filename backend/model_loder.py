@@ -13,7 +13,7 @@ import sklearn
 
 #     return model
 loaded_model = torch.load(
-    "model/sugarcaneacc79.pth",
+    "model/sugarcanemodel13sep.pth",
     weights_only=False,
     map_location=torch.device("cpu")
 )

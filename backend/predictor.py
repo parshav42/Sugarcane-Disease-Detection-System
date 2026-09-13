@@ -5,13 +5,14 @@ from PIL import Image
 
 
 class_names = {
-    0: "Healthy",
-    1: "Mosaic",
-    2: "Red Rot",
-    3: "Rust",
-    4: "Yellow"
+    0: "BrownRust",
+    1: "Dried Leaves",
+    2: "HealthyLeaves",
+    3: "mites",
+    4: "ReadSpot",
+    5: "YellowLeaf",
+    6: "mawa"
 }
-
 
 
 
