@@ -17,7 +17,7 @@ class_names = {
     6: "mawa"
 }
 
-detail_path = Path(__file__).resolve().parents[2] / "crop.json"
+detail_path = Path(__file__).resolve().parents[1] / "crop.json"
 if not detail_path.exists():
     detail_path = Path(__file__).resolve().parents[1] / "crop.json"
 
