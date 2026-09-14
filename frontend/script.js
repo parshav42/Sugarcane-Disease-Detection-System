@@ -84,7 +84,7 @@ detectBtn.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8001/upload",
+            "https://sugarcane-disease-detection-system.onrender.com/upload",
             {
                 method: "POST",
                 body: formData
@@ -180,7 +180,7 @@ recommendBtn.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8001/crop",
+            "https://sugarcane-disease-detection-system.onrender.com/crop",
             {
                 method: "POST",
                 headers: {
